@@ -4,31 +4,31 @@ import { ArrowRight, Package } from "lucide-react";
 const CATEGORIES = [
   {
     title: "Foodstuffs",
-    img: "/foodstuff.png",
+    img: "/Website_0/foodstuff.png",
   },
   {
     title: "Provisions",
-    img: "/provision-store.jpg",
+    img: "/Website_0/provision-store.jpg",
   },
   {
     title: "Fabrics",
-    img: "/Fabric.webp",
+    img: "/Website_0/Fabric.webp",
   },
   {
     title: "Bonga Fish",
-    img: "/blended_bonga_fish.webp.jpeg",
+    img: "/Website_0/blended_bonga_fish.webp.jpeg",
   },
   {
     title: "Dry Fish",
-    img: "/dried_fish.webp.jpeg",
+    img: "/Website_0/dried_fish.webp.jpeg",
   },
   {
     title: "Snails",
-    img: "/snails.webp.jpeg",
+    img: "/Website_0/snails.webp.jpeg",
   },
   {
     title: "Meat",
-    img: "/meat.webp.jpeg",
+    img: "/Website_0/meat.webp.jpeg",
   },
 ];
 
@@ -39,7 +39,6 @@ export default function WhatWeShop() {
       className="bg-white px-6 py-16 md:px-12 lg:px-20"
     >
       <div className="mx-auto max-w-7xl">
-
         {/* SECTION HEADER */}
         <div className="text-center">
           <h2 className="font-[var(--font-display)] text-3xl font-bold text-[#8D0668] sm:text-4xl">
@@ -89,7 +88,6 @@ export default function WhatWeShop() {
             className="group flex flex-col"
           >
             <div className="relative flex aspect-square flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-br from-[#6A0572] to-[#8D0668] px-5 text-center transition duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_12px_30px_rgba(106,5,114,0.2)]">
-
               <Package
                 size={30}
                 strokeWidth={1.8}
