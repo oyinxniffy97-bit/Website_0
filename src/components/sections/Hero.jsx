@@ -30,49 +30,45 @@ export default function Hero() {
           {/* Mobile */}
           <source
             media="(max-width: 640px)"
-            srcSet="/hero-mobile.webp"
+            srcSet="/Website_0/hero-mobile.webp"
             type="image/webp"
           />
 
           {/* Tablet */}
           <source
             media="(max-width: 1024px)"
-            srcSet="/hero-tablet.webp"
+            srcSet="/Website_0/hero-tablet.webp"
             type="image/webp"
           />
 
           {/* Desktop */}
           <source
             media="(min-width: 1025px)"
-            srcSet="/hero-desktop.webp"
+            srcSet="/Website_0/hero-desktop.webp"
             type="image/webp"
           />
 
+          {/* Fallback */}
           <img
-            src="/hero-desktop.jpg"
+            src="/Website_0/hero-desktop.jpg"
             alt=""
             aria-hidden="true"
             loading="eager"
             fetchPriority="high"
             decoding="async"
             className="
-  h-full
-  w-full
-  object-cover
-  object-top
-  sm:object-contain
-  lg:object-contain
-"
+              h-full
+              w-full
+              object-cover
+              object-top
+              sm:object-contain
+              lg:object-contain
+            "
           />
         </picture>
 
         {/* =======================================================
-            RICHER TEXT-SAFE GRADIENT
-
-            Switched from a near-white wash (which flattened the
-            image's natural magenta/pink richness) to a colored
-            magenta/purple scrim at lower opacity. Protects text
-            contrast without washing out the artwork.
+            DESKTOP / TABLET TEXT-SAFE GRADIENT
             ======================================================= */}
         <div
           className="
@@ -87,7 +83,9 @@ export default function Hero() {
           "
         />
 
-        {/* Soft bottom fade */}
+        {/* =======================================================
+            SOFT BOTTOM FADE
+            ======================================================= */}
         <div
           className="
             absolute inset-x-0 bottom-0
@@ -99,7 +97,9 @@ export default function Hero() {
           "
         />
 
-        {/* Mobile readability */}
+        {/* =======================================================
+            MOBILE READABILITY GRADIENT
+            ======================================================= */}
         <div
           className="
             absolute inset-0
@@ -137,9 +137,6 @@ export default function Hero() {
       >
         {/* =======================================================
             TEXT SAFE ZONE
-
-            Narrowed further so copy stays clear of the model's
-            face, which sits around the 55-60% horizontal mark.
             ======================================================= */}
         <div
           className="
@@ -153,7 +150,9 @@ export default function Hero() {
             lg:max-w-[460px]
           "
         >
-          {/* Small brand statement */}
+          {/* =====================================================
+              SMALL BRAND STATEMENT
+              ===================================================== */}
           <div
             className="
               mb-5
@@ -178,7 +177,9 @@ export default function Hero() {
             <span>You relax, we shop, you smile!</span>
           </div>
 
-          {/* Main heading */}
+          {/* =====================================================
+              MAIN HEADING
+              ===================================================== */}
           <h1
             id="hero-heading"
             className="
@@ -195,7 +196,9 @@ export default function Hero() {
             SHOPPERSISI
           </h1>
 
-          {/* Supporting headline */}
+          {/* =====================================================
+              SUPPORTING HEADLINE
+              ===================================================== */}
           <p
             className="
               mt-5
@@ -212,7 +215,9 @@ export default function Hero() {
             We run errands for a living.
           </p>
 
-          {/* Description */}
+          {/* =====================================================
+              DESCRIPTION
+              ===================================================== */}
           <p
             className="
               mt-5
@@ -233,7 +238,9 @@ export default function Hero() {
             of home and country.
           </p>
 
-          {/* CTA */}
+          {/* =====================================================
+              CTA
+              ===================================================== */}
           <div className="mt-7">
             <a
               href="https://wa.me/2348101605616"
@@ -288,7 +295,9 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Trust indicators */}
+          {/* =====================================================
+              TRUST INDICATORS
+              ===================================================== */}
           <div
             className="
               mt-7
@@ -364,7 +373,9 @@ export default function Hero() {
         "
       >
         <div className="grid grid-cols-2 divide-x divide-white/15 lg:grid-cols-4">
-          {/* Shop from Nigerian markets */}
+          {/* =====================================================
+              SHOP FROM NIGERIAN MARKETS
+              ===================================================== */}
           <div className="flex min-h-[104px] items-center gap-3 px-4 py-5 sm:px-6 lg:min-h-[112px] lg:px-7">
             <div
               className="
@@ -413,7 +424,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Errand services */}
+          {/* =====================================================
+              ERRAND SERVICES
+              ===================================================== */}
           <div className="flex min-h-[104px] items-center gap-3 px-4 py-5 sm:px-6 lg:min-h-[112px] lg:px-7">
             <div
               className="
@@ -460,7 +473,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Delivery */}
+          {/* =====================================================
+              DELIVERY
+              ===================================================== */}
           <div className="flex min-h-[104px] items-center gap-3 px-4 py-5 sm:px-6 lg:min-h-[112px] lg:px-7">
             <div
               className="
@@ -509,7 +524,9 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Trusted & reliable */}
+          {/* =====================================================
+              TRUSTED & RELIABLE
+              ===================================================== */}
           <div
             className="
               col-span-2
@@ -580,7 +597,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom spacing */}
+      {/* =========================================================
+          BOTTOM SPACING
+          ========================================================= */}
       <div className="h-8 bg-[#FFF5F8] sm:h-10 lg:h-12" />
     </section>
   );
