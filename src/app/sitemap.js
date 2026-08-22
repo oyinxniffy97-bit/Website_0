@@ -1,47 +1,60 @@
+export const dynamic = "force-static";
+
 export default function sitemap() {
-  const baseUrl = "https://lisbethwrites.vercel.app";
+  const baseUrl = "https://oyinxniffy97-bit.github.io/Website_0";
 
-  return [
+  const routes = [
     {
-      url: baseUrl,
-      lastModified: new Date(),
+      path: "",
       changeFrequency: "weekly",
       priority: 1,
     },
-
     {
-      url: `${baseUrl}/our-story`,
-      lastModified: new Date(),
+      path: "/about",
       changeFrequency: "monthly",
       priority: 0.9,
     },
-
     {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      path: "/services",
       changeFrequency: "monthly",
       priority: 0.9,
     },
-
     {
-      url: `${baseUrl}/our-work`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-
-    {
-      url: `${baseUrl}/insights`,
-      lastModified: new Date(),
+      path: "/shop",
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 0.9,
     },
-
     {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      path: "/errands",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      path: "/how-it-works",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      path: "/faq",
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      path: "/request",
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      path: "/contact",
       changeFrequency: "monthly",
       priority: 0.8,
     },
   ];
+
+  return routes.map(({ path, changeFrequency, priority }) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
+  }));
 }

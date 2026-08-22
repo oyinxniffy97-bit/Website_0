@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 export default function robots() {
   return {
     rules: {
@@ -5,7 +7,6 @@ export default function robots() {
       allow: "/",
     },
 
-    sitemap:
-      "https://lisbethwrites.vercel.app/sitemap.xml",
+    sitemap: "https://oyinxniffy97-bit.github.io/Website_0/sitemap.xml",
   };
 }
