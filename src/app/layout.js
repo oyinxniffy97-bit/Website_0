@@ -1,15 +1,14 @@
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
-import StructuredData from "../components/SEO/StructuredData";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -17,53 +16,49 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://lisbethwrites.vercel.app"),
-
   title: {
-    default: "LisbethWrites | Teaching the World the Word Through Writing",
-    template: "%s | LisbethWrites",
+    default: "Shopper Sisi | We Run Errands for a Living",
+    template: "%s | Shopper Sisi",
   },
 
   description:
-    "LisbethWrites is a Christian Writing Studio helping ministries, churches, Christian authors, Kingdom organizations, and faith-driven brands communicate God's message through thoughtful, Scripture-centered writing.",
+    "Shopper Sisi makes it easy to shop for authentic African foodstuff, fabrics, spices, dry fish, meat and more from Nigeria. We shop for you and deliver to your doorstep.",
 
-  applicationName: "LisbethWrites",
+  applicationName: "Shopper Sisi",
 
   keywords: [
-    "Christian Writing Studio",
-    "Christian Writer",
-    "Christian Content Writer",
-    "Christian Ghostwriter",
-    "Christian Copywriter",
-    "Christian Editor",
-    "Christian Book Writer",
-    "Devotional Writer",
-    "Bible Study Writer",
-    "Church Content Writer",
-    "Ministry Writing",
-    "Kingdom Writing",
-    "Faith-Based Writing",
-    "Christian Publishing",
-    "Christian Newsletter Writer",
-    "Christian YouTube Script Writer",
+    "Shopper Sisi",
+    "African foodstuff",
+    "Nigerian foodstuff",
+    "Nigerian foodstuff abroad",
+    "buy Nigerian food online",
+    "African groceries",
+    "Nigerian groceries",
+    "Nigerian fabrics",
+    "African fabrics",
+    "dry fish",
+    "Nigerian spices",
+    "African food delivery",
+    "Nigeria shopping errands",
+    "Nigerian shopping service",
+    "shop Nigerian products",
+    "African food delivery abroad",
   ],
 
   authors: [
     {
-      name: "LisbethWrites Team",
-      url: "https://lisbethwrites.vercel.app",
+      name: "Shopper Sisi",
     },
   ],
 
-  creator: "LisbethWrites",
-
-  publisher: "LisbethWrites",
-
-  category: "Christian Writing",
+  creator: "Shopper Sisi",
+  publisher: "Shopper Sisi",
+  category: "E-commerce",
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -73,34 +68,32 @@ export const metadata = {
     },
   },
 
-  alternates: {
-    canonical: "https://lisbethwrites.vercel.app",
-  },
-
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lisbethwrites.vercel.app",
-    siteName: "LisbethWrites",
-    title: "LisbethWrites | Teaching the World the Word Through Writing",
+    siteName: "Shopper Sisi",
+    title: "Shopper Sisi | We Run Errands for a Living",
+
     description:
-      "A Christian Writing Studio creating Scripture-centered content, devotionals, Bible studies, articles, and resources that communicate God's truth with clarity and excellence.",
+      "From Nigerian foodstuff and fabrics to spices, dry fish and more, Shopper Sisi helps you get what you need from Nigeria without the stress.",
+
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "LisbethWrites – Teaching the World the Word Through Writing",
+        alt: "Shopper Sisi — We Run Errands for a Living",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "LisbethWrites | Teaching the World the Word Through Writing",
+    title: "Shopper Sisi | We Run Errands for a Living",
+
     description:
-      "A Christian Writing Studio helping ministries, authors, and faith-driven organizations communicate God's message through meaningful writing.",
-    creator: "@LisbethWrites",
+      "Shop authentic Nigerian and African products with ease. Shopper Sisi shops for you and delivers to your doorstep.",
+
     images: ["/og-image.png"],
   },
 
@@ -114,15 +107,21 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#8D0668",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${cormorant.variable} ${sourceSans.variable}`}
+        className={
+          playfair.variable +
+          " " +
+          poppins.variable +
+          " bg-white text-[#1D1D1D] antialiased"
+        }
       >
-        <StructuredData />
         {children}
       </body>
     </html>

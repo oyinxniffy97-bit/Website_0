@@ -1,176 +1,163 @@
 "use client";
+
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
-  PenTool,
-  BookOpen,
-  Edit3,
-  Mic,
+  ArrowLeft,
+  ArrowRight,
+  ShoppingBag,
+  Truck,
+  Store,
 } from "lucide-react";
+
+const SERVICES = [
+  {
+    id: "personal-shopping",
+    icon: ShoppingBag,
+    title: "Personal Shopping",
+    tagline: "Abroad and craving home?",
+    description:
+      "Living outside Nigeria but missing the market? We shop Nigerian foodstuffs, fabrics, dry fish, and spices on your behalf, then ship them straight to your doorstep — delivering to Canada, the USA, Australia, and Finland.",
+    points: [
+      "For customers outside Nigeria",
+      "Foodstuffs, fabrics & spices",
+      "Compared prices, quality checked",
+      "International delivery to Canada, USA, Australia & Finland",
+    ],
+  },
+  {
+    id: "errands",
+    icon: Truck,
+    title: "Errand Services",
+    tagline: "In Nigeria, but can't get to the market?",
+    description:
+      "Busy schedule, no transport, or just can't make the trip? Our Nigeria errand service shops local markets for you and delivers to your doorstep, anywhere in Nigeria.",
+    points: [
+      "For customers within Nigeria",
+      "We visit the market for you",
+      "Same-day or scheduled delivery",
+      "Bill payments & pickups too",
+    ],
+  },
+  {
+    id: "walk-in-store",
+    icon: Store,
+    title: "Walk-In Store",
+    tagline: "Prefer to shop in person?",
+    description:
+      "Visit our physical store to browse and buy Nigerian foodstuffs and fabrics directly — same trusted quality, no waiting on delivery. Great for last-minute needs or seeing items before you buy.",
+    points: [
+      "Browse in-store inventory",
+      "Pay on the spot",
+      "Same-day pickup",
+      "Friendly, no-pressure service",
+    ],
+  },
+];
+
 export default function Services() {
-
-  const services = [
-    {
-      icon: PenTool,
-      title: "Christian Content Writing",
-      description:
-        "Biblically grounded articles, devotionals, newsletters, and ministry resources crafted with clarity and purpose.",
-    },
-    {
-      icon: BookOpen,
-      title: "Devotional & Bible Study Writing",
-      description:
-        "Thoughtful spiritual materials designed to encourage believers and communicate biblical truth effectively.",
-    },
-    {
-      icon: Edit3,
-      title: "Book Editing & Refinement",
-      description:
-        "Developmental editing, proofreading, and manuscript refinement to help Christian authors present their message with excellence.",
-    },
-    {
-      icon: Mic,
-      title: "YouTube Script Writing",
-      description:
-        "Engaging Christian scripts that combine biblical teaching, research, and storytelling to reach wider audiences.",
-    },
-  
-  ];
-
   return (
-  <section
-    id="services"
-    className="py-24 bg-[#121212] text-[#F5F1E8]"
-  >
-    <div className="max-w-7xl mx-auto px-6">
+    <section
+      aria-labelledby="services-heading"
+      className="bg-white px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
+    >
+      <div className="mx-auto max-w-6xl">
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--purple)]/60 transition-colors hover:text-[var(--magenta)]"
+        >
+          <ArrowLeft size={14} strokeWidth={2.2} aria-hidden="true" />
+          Back to home
+        </Link>
 
-      {/* Section Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-center max-w-3xl mx-auto"
-      >
-        <p className="text-[#D4AF37] uppercase tracking-[0.3em] text-sm">
-          What We Do
+        <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-[var(--magenta)]">
+          Our Services
         </p>
 
-        <h2 className="mt-5 text-4xl md:text-5xl font-serif">
-          Words Crafted With
-          <br />
-          Purpose and Excellence
-        </h2>
+        <h1
+          id="services-heading"
+          className="max-w-xl font-[var(--font-display)] text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-[var(--purple)] sm:text-5xl"
+        >
+          Three ways we
+          <span className="block text-[var(--magenta)]">make it easy.</span>
+        </h1>
 
-        <p className="mt-6 text-[#F5F1E8]/70 text-lg leading-relaxed">
-          Helping ministries, authors, and faith-driven organizations
-          communicate God's truth through thoughtful writing.
+        <p className="mt-5 max-w-lg text-sm leading-7 text-[#1D1D1D]/65 sm:text-base">
+          Whether you&apos;re shopping the Nigerian market from abroad or
+          running errands locally, we&apos;ve got a way to help.
         </p>
-      </motion.div>
 
-      {/* Service Cards */}
-      <div className="mt-20 grid md:grid-cols-2 gap-8">
-        {services.map((service, index) => {
-          const Icon = service.icon;
+        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          {SERVICES.map((service) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.id}
+                id={service.id}
+                className="flex flex-col rounded-[1.75rem] border border-black/[0.06] bg-[var(--soft-pink)] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--magenta)]/25 sm:p-8"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--gold)]/20 text-[var(--magenta)]">
+                  <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
+                </span>
 
-          return (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-              className="
-                rounded-3xl
-                border
-                border-[#F5F1E8]/10
-                bg-white/5
-                backdrop-blur-xl
-                p-8
-                hover:border-[#D4AF37]/40
-                transition
-              "
+                <h2 className="mt-5 font-[var(--font-display)] text-xl font-semibold text-[var(--purple)] sm:text-2xl">
+                  {service.title}
+                </h2>
+
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-[var(--magenta)]/70">
+                  {service.tagline}
+                </p>
+
+                <p className="mt-4 text-sm leading-6 text-[#1D1D1D]/65">
+                  {service.description}
+                </p>
+
+                <ul className="mt-5 space-y-2.5">
+                  {service.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-2 text-sm text-[#1D1D1D]/70"
+                    >
+                      <span
+                        className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]"
+                        aria-hidden="true"
+                      />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto pt-7">
+                  <Link
+                    href="/request"
+                    className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--magenta)] transition-colors hover:text-[var(--purple)]"
+                  >
+                    Request this
+                    <ArrowRight
+                      size={15}
+                      strokeWidth={2}
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-14 rounded-2xl border border-[var(--gold)]/30 bg-[var(--gold)]/[0.08] p-6 text-center">
+          <p className="text-sm leading-6 text-[#1D1D1D]/80">
+            Not sure which service fits your need?{" "}
+            <Link
+              href="/contact"
+              className="font-semibold text-[var(--magenta)] underline underline-offset-4 hover:text-[var(--purple)]"
             >
-              <Icon size={34} className="text-[#D4AF37]" />
-
-              <h3 className="mt-6 text-2xl font-serif">
-                {service.title}
-              </h3>
-
-              <p className="mt-5 text-[#F5F1E8]/70 leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          );
-        })}
+              Reach out to us
+            </Link>{" "}
+            and we&apos;ll point you in the right direction.
+          </p>
+        </div>
       </div>
-
-      {/* View All Services */}
-      <div className="mt-12 flex justify-center">
-        <Link
-          href="/services"
-          className="
-            inline-flex
-            items-center
-            gap-2
-            text-[#D4AF37]
-            font-medium
-            group
-          "
-        >
-          View All Services
-          <span className="transition-transform group-hover:translate-x-1">
-            →
-          </span>
-        </Link>
-      </div>
-
-      {/* CTA */}
-      <div
-        className="
-          mt-32
-          rounded-3xl
-          border
-          border-[#D4AF37]/20
-          bg-white/5
-          p-12
-          text-center
-        "
-      >
-        <h2 className="text-4xl md:text-5xl font-serif">
-          Every Meaningful Message
-          <br />
-          Deserves Exceptional Writing.
-        </h2>
-
-        <p className="mt-6 max-w-2xl mx-auto text-[#F5F1E8]/70 text-lg">
-          Let us help you communicate your message with clarity,
-          excellence, and purpose.
-        </p>
-
-        <Link
-          href="/contact"
-          className="
-            inline-flex
-            mt-10
-            px-8
-            py-4
-            rounded-full
-            bg-[#D4AF37]
-            text-[#121212]
-            font-medium
-            hover:scale-105
-            transition
-          "
-        >
-          Work With Us →
-        </Link>
-      </div>
-
-    </div>
-  </section>
-);
+    </section>
+  );
 }

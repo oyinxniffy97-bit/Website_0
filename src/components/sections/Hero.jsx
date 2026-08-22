@@ -1,408 +1,587 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Heart,
+  Plane,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 export default function Hero() {
   return (
     <section
-      id="home"
-      className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#121212]"
+      aria-labelledby="hero-heading"
+      className="relative isolate overflow-hidden bg-[#FFF5F8]"
     >
-
-      {/* Background Glow */}
-      <motion.div
-        animate={{ opacity: [0.4, 0.7, 0.4] }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="
-        absolute 
-        top-1/4 
-        right-0 
-        w-[500px] 
-        h-[500px] 
-        bg-[#D4AF37]/10 
-        blur-[120px] 
-        rounded-full
-        "
-      />
-
-
+      {/* =========================================================
+          HERO VISUAL
+          Desktop/tablet: full-bleed background
+          Mobile: contained image
+          ========================================================= */}
       <div
         className="
-        max-w-7xl 
-        mx-auto 
-        px-6 
-        pt-32 
-        pb-20 
-        grid 
-        lg:grid-cols-2 
-        gap-16 
-        items-center
+          relative h-[560px] w-full overflow-hidden
+          sm:absolute sm:inset-0 sm:h-full sm:min-h-[620px]
+          sm:-z-20
         "
       >
+        <picture>
+          {/* Mobile */}
+          <source
+            media="(max-width: 640px)"
+            srcSet="/hero-mobile.webp"
+            type="image/webp"
+          />
 
+          {/* Tablet */}
+          <source
+            media="(max-width: 1024px)"
+            srcSet="/hero-tablet.webp"
+            type="image/webp"
+          />
 
-        {/* Content */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-        >
+          {/* Desktop */}
+          <source
+            media="(min-width: 1025px)"
+            srcSet="/hero-desktop.webp"
+            type="image/webp"
+          />
 
-
-          <p
+          <img
+            src="/hero-desktop.jpg"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="
-            text-[#D4AF37]
-            uppercase
-            tracking-[0.35em]
-            text-sm
-            mb-6
-            "
-          >
-            Faith • Story • Purpose
-          </p>
+  h-full
+  w-full
+  object-cover
+  object-top
+  sm:object-contain
+  lg:object-contain
+"
+          />
+        </picture>
 
+        {/* =======================================================
+            RICHER TEXT-SAFE GRADIENT
 
-
-          <h1
-            className="
-            text-5xl 
-            md:text-7xl 
-            font-serif 
-            leading-[1.1] 
-            text-[#F5F1E8]
-            "
-          >
-            Teaching the World
-            <br />
-            the Word,
-            <br />
-            Through Writing.
-          </h1>
-
-
-
-          <p
-            className="
-            mt-8 
-            text-lg 
-            leading-relaxed 
-            text-[#F5F1E8]/70 
-            max-w-xl
-            "
-          >
-            LisbethWrites is a Christian writing studio helping ministries,
-            authors, and purpose-driven organizations communicate God's message
-            through thoughtful, meaningful, and impactful writing.
-          </p>
-
-
-
-
-          {/* Buttons */}
-          <div
-            className="
-            mt-10 
-            flex 
-            flex-wrap 
-            gap-5
-            "
-          >
-
-
-            <Link
-              href="/contact"
-              className="
-              inline-flex 
-              items-center 
-              gap-2 
-              px-7 
-              py-4 
-              rounded-full 
-              bg-[#D4AF37] 
-              text-[#121212] 
-              font-medium 
-              hover:scale-105 
-              transition
-              "
-            >
-              Start Your Project
-              <ArrowRight size={18}/>
-            </Link>
-
-
-
-            {/* FIXED ROUTE */}
-            <Link
-              href="/our-work"
-              className="
-              inline-flex 
-              items-center 
-              px-7 
-              py-4 
-              rounded-full 
-              border 
-              border-[#F5F1E8]/20 
-              text-[#F5F1E8]
-              hover:border-[#D4AF37]
-              hover:text-[#D4AF37]
-              transition
-              "
-            >
-              Explore Our Work
-            </Link>
-
-
-          </div>
-
-
-
-
-          {/* Mobile Card */}
-          <div
-            className="
-            lg:hidden 
-            mt-14 
-            flex 
-            justify-center
-            "
-          >
-
-            <div
-              className="
-              w-64
-              rounded-2xl
-              border
-              border-[#D4AF37]/20
-              bg-gradient-to-br
-              from-white/10
-              to-[#D4AF37]/10
-              backdrop-blur-xl
-              p-6
-              "
-            >
-
-              <p
-                className="
-                text-xs
-                uppercase
-                tracking-[0.3em]
-                text-[#D4AF37]
-                "
-              >
-                The Word
-              </p>
-
-
-              <h3
-                className="
-                mt-5
-                text-3xl
-                font-serif
-                text-[#F5F1E8]
-                leading-tight
-                "
-              >
-                Stories
-                <br/>
-                That
-                <br/>
-                Transform
-              </h3>
-
-
-              <div
-                className="
-                mt-5
-                h-px
-                bg-[#D4AF37]/40
-                "
-              />
-
-
-              <p
-                className="
-                mt-4
-                text-sm
-                italic
-                text-[#F5F1E8]/70
-                "
-              >
-                Written with faith and purpose.
-              </p>
-
-
-            </div>
-
-          </div>
-
-
-        </motion.div>
-
-
-
-
-
-        {/* Desktop Visual */}
-        <motion.div
-          initial={{
-            opacity:0,
-            scale:0.9
-          }}
-          animate={{
-            opacity:1,
-            scale:1
-          }}
-          transition={{
-            duration:1
-          }}
+            Switched from a near-white wash (which flattened the
+            image's natural magenta/pink richness) to a colored
+            magenta/purple scrim at lower opacity. Protects text
+            contrast without washing out the artwork.
+            ======================================================= */}
+        <div
           className="
-          hidden 
-          lg:flex 
-          justify-center 
-          relative
+            absolute inset-0
+            hidden
+            bg-gradient-to-r
+            from-[#6A0572]/80
+            via-[#8D0668]/45
+            via-[35%]
+            to-transparent
+            sm:block
           "
-        >
+        />
 
+        {/* Soft bottom fade */}
+        <div
+          className="
+            absolute inset-x-0 bottom-0
+            hidden h-28
+            bg-gradient-to-t
+            from-[#6A0572]/45
+            to-transparent
+            sm:block
+          "
+        />
 
-          <motion.div
-            animate={{
-              y:[0,-15,0]
-            }}
-            transition={{
-              duration:5,
-              repeat:Infinity,
-              ease:"easeInOut"
-            }}
-            className="
-            w-[420px]
-            h-[520px]
-            rounded-3xl
-            border
-            border-[#D4AF37]/20
-            bg-gradient-to-br
-            from-white/10
-            to-[#D4AF37]/10
-            backdrop-blur-xl
-            flex
-            items-center
-            justify-center
-            overflow-hidden
-            relative
-            "
-          >
-
-
-            <div
-              className="
-              absolute
-              inset-0
-              bg-[#D4AF37]/10
-              blur-3xl
-              "
-            />
-
-
-
-            <motion.div
-              animate={{
-                y:[0,-8,0],
-                rotate:[3,1,3]
-              }}
-              transition={{
-                duration:4,
-                repeat:Infinity,
-                ease:"easeInOut"
-              }}
-              className="
-              relative
-              bg-[#F5F1E8]
-              text-[#121212]
-              w-[260px]
-              h-[340px]
-              rounded-lg
-              shadow-2xl
-              flex
-              flex-col
-              justify-center
-              px-8
-              "
-            >
-
-
-              <p
-                className="
-                text-xs
-                uppercase
-                tracking-[0.3em]
-                text-[#8B6B23]
-                "
-              >
-                The Word
-              </p>
-
-
-              <h2
-                className="
-                mt-6
-                text-4xl
-                font-serif
-                leading-tight
-                "
-              >
-                Stories
-                <br/>
-                That
-                <br/>
-                Transform
-              </h2>
-
-
-              <div
-                className="
-                mt-8
-                h-px
-                bg-[#D4AF37]
-                "
-              />
-
-
-              <p
-                className="
-                mt-4
-                text-xs
-                italic
-                "
-              >
-                Written with faith and purpose.
-              </p>
-
-
-            </motion.div>
-
-
-          </motion.div>
-
-
-        </motion.div>
-
-
+        {/* Mobile readability */}
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-b
+            from-[#6A0572]/80
+            via-[#8D0668]/40
+            to-transparent
+            sm:hidden
+          "
+        />
       </div>
 
+      {/* =========================================================
+          HERO CONTENT
+          ========================================================= */}
+      <div
+        className="
+          relative mx-auto
+          flex w-full max-w-[1440px]
+          min-h-[560px]
+          flex-col
+          justify-center
+          px-5
+          pb-12
+          pt-10
 
+          sm:min-h-[620px]
+          sm:justify-center
+          sm:px-8
+          sm:py-16
+
+          lg:px-10
+          xl:px-12
+        "
+      >
+        {/* =======================================================
+            TEXT SAFE ZONE
+
+            Narrowed further so copy stays clear of the model's
+            face, which sits around the 55-60% horizontal mark.
+            ======================================================= */}
+        <div
+          className="
+            relative z-10
+            w-full
+            max-w-[420px]
+            origin-left
+            animate-[hero-in_0.7s_ease-out_both]
+
+            sm:max-w-[440px]
+            lg:max-w-[460px]
+          "
+        >
+          {/* Small brand statement */}
+          <div
+            className="
+              mb-5
+              flex items-center gap-2
+              font-[var(--font-body)]
+              text-[11px]
+              font-bold
+              uppercase
+              tracking-[0.2em]
+              text-[#FFC107]
+
+              sm:text-xs
+            "
+          >
+            <Heart
+              size={14}
+              strokeWidth={2.5}
+              fill="currentColor"
+              aria-hidden="true"
+            />
+
+            <span>You relax, we shop, you smile!</span>
+          </div>
+
+          {/* Main heading */}
+          <h1
+            id="hero-heading"
+            className="
+              max-w-[420px]
+              font-[var(--font-display)]
+              text-[clamp(3rem,6.4vw,5.2rem)]
+              font-semibold
+              leading-[0.9]
+              tracking-[-0.045em]
+              text-white
+              drop-shadow-[0_4px_18px_rgba(0,0,0,0.25)]
+            "
+          >
+            SHOPPERSISI
+          </h1>
+
+          {/* Supporting headline */}
+          <p
+            className="
+              mt-5
+              max-w-[420px]
+              font-[var(--font-body)]
+              text-[clamp(1.2rem,2.2vw,1.85rem)]
+              font-bold
+              uppercase
+              leading-[1.08]
+              tracking-[-0.02em]
+              text-[#FFC107]
+            "
+          >
+            We run errands for a living.
+          </p>
+
+          {/* Description */}
+          <p
+            className="
+              mt-5
+              max-w-[380px]
+              font-[var(--font-body)]
+              text-[14px]
+              leading-6
+              text-white/90
+
+              sm:text-[15px]
+              sm:leading-7
+            "
+          >
+            From markets to your doorstep!
+            <br />
+            With us you can shop right from the comfort
+            <br className="hidden sm:block" />
+            of home and country.
+          </p>
+
+          {/* CTA */}
+          <div className="mt-7">
+            <a
+              href="https://wa.me/2348101605616"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Request an order through WhatsApp"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-3
+                rounded-xl
+                bg-[#B80668]
+                px-7
+                py-3.5
+
+                font-[var(--font-body)]
+                text-sm
+                font-bold
+                uppercase
+                tracking-wide
+                text-white
+
+                shadow-[0_14px_32px_rgba(184,6,104,0.28)]
+
+                transition-all
+                duration-300
+
+                hover:-translate-y-0.5
+                hover:bg-[#8D0668]
+                hover:shadow-[0_18px_38px_rgba(106,5,114,0.32)]
+
+                focus:outline-none
+                focus-visible:ring-2
+                focus-visible:ring-[#FFC107]
+                focus-visible:ring-offset-2
+              "
+            >
+              <span>Request an Order</span>
+
+              <ArrowRight
+                size={18}
+                strokeWidth={2.4}
+                aria-hidden="true"
+                className="
+                  text-[#FFC107]
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
+              />
+            </a>
+          </div>
+
+          {/* Trust indicators */}
+          <div
+            className="
+              mt-7
+              flex flex-wrap
+              items-center
+              gap-x-4
+              gap-y-2
+
+              font-[var(--font-body)]
+              text-[10px]
+              font-bold
+              uppercase
+              tracking-[0.16em]
+              text-white/90
+
+              sm:text-[11px]
+            "
+          >
+            <span>Fast</span>
+
+            <span
+              className="
+                h-1.5 w-1.5
+                rounded-full
+                bg-[#FFC107]
+              "
+              aria-hidden="true"
+            />
+
+            <span>Trusted</span>
+
+            <span
+              className="
+                h-1.5 w-1.5
+                rounded-full
+                bg-[#FFC107]
+              "
+              aria-hidden="true"
+            />
+
+            <span>Reliable</span>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================
+          FLOATING SERVICE TRUST BAR
+          ========================================================= */}
+      <div
+        className="
+          relative
+          mx-auto
+          -mt-5
+          w-[calc(100%-2rem)]
+          max-w-[1380px]
+          overflow-hidden
+          rounded-[20px]
+
+          bg-gradient-to-r
+          from-[#6A0572]
+          via-[#8B075F]
+          to-[#B80668]
+
+          shadow-[0_18px_45px_rgba(106,5,114,0.24)]
+
+          sm:-mt-8
+          sm:w-[calc(100%-4rem)]
+
+          lg:-mt-12
+          lg:rounded-[24px]
+
+          xl:w-[calc(100%-7rem)]
+        "
+      >
+        <div className="grid grid-cols-2 divide-x divide-white/15 lg:grid-cols-4">
+          {/* Shop from Nigerian markets */}
+          <div className="flex min-h-[104px] items-center gap-3 px-4 py-5 sm:px-6 lg:min-h-[112px] lg:px-7">
+            <div
+              className="
+                flex h-10 w-10 shrink-0
+                items-center justify-center
+                rounded-full
+                border border-[#FFC107]/50
+                text-[#FFC107]
+              "
+            >
+              <Sparkles size={20} strokeWidth={1.8} aria-hidden="true" />
+            </div>
+
+            <div>
+              <p
+                className="
+                  font-[var(--font-body)]
+                  text-[11px]
+                  font-bold
+                  uppercase
+                  tracking-wide
+                  text-white
+                  sm:text-xs
+                "
+              >
+                Shop from
+                <br />
+                Nigerian markets
+              </p>
+
+              <p
+                className="
+                  mt-1
+                  hidden
+                  font-[var(--font-body)]
+                  text-[10px]
+                  leading-4
+                  text-white/70
+                  sm:block
+                "
+              >
+                We shop for foodstuffs,
+                <br />
+                fabrics and more.
+              </p>
+            </div>
+          </div>
+
+          {/* Errand services */}
+          <div className="flex min-h-[104px] items-center gap-3 px-4 py-5 sm:px-6 lg:min-h-[112px] lg:px-7">
+            <div
+              className="
+                flex h-10 w-10 shrink-0
+                items-center justify-center
+                rounded-full
+                border border-[#FFC107]/50
+                text-[#FFC107]
+              "
+            >
+              <ArrowRight size={20} strokeWidth={1.8} aria-hidden="true" />
+            </div>
+
+            <div>
+              <p
+                className="
+                  font-[var(--font-body)]
+                  text-[11px]
+                  font-bold
+                  uppercase
+                  tracking-wide
+                  text-white
+                  sm:text-xs
+                "
+              >
+                Errand services
+              </p>
+
+              <p
+                className="
+                  mt-1
+                  hidden
+                  font-[var(--font-body)]
+                  text-[10px]
+                  leading-4
+                  text-white/70
+                  sm:block
+                "
+              >
+                We run errands so
+                <br />
+                you don&apos;t have to.
+              </p>
+            </div>
+          </div>
+
+          {/* Delivery */}
+          <div className="flex min-h-[104px] items-center gap-3 px-4 py-5 sm:px-6 lg:min-h-[112px] lg:px-7">
+            <div
+              className="
+                flex h-10 w-10 shrink-0
+                items-center justify-center
+                rounded-full
+                border border-[#FFC107]/50
+                text-[#FFC107]
+              "
+            >
+              <Plane size={20} strokeWidth={1.8} aria-hidden="true" />
+            </div>
+
+            <div>
+              <p
+                className="
+                  font-[var(--font-body)]
+                  text-[11px]
+                  font-bold
+                  uppercase
+                  tracking-wide
+                  text-white
+                  sm:text-xs
+                "
+              >
+                Delivery within
+                <br />
+                &amp; outside Nigeria
+              </p>
+
+              <p
+                className="
+                  mt-1
+                  hidden
+                  font-[var(--font-body)]
+                  text-[10px]
+                  leading-4
+                  text-white/70
+                  sm:block
+                "
+              >
+                We deliver to your doorstep
+                <br />
+                locally &amp; internationally.
+              </p>
+            </div>
+          </div>
+
+          {/* Trusted & reliable */}
+          <div
+            className="
+              col-span-2
+              flex min-h-[92px]
+              items-center
+              justify-center
+              gap-3
+              border-t border-white/15
+              px-4 py-5
+
+              sm:min-h-[104px]
+              sm:border-t-0
+
+              lg:col-span-1
+              lg:min-h-[112px]
+              lg:justify-start
+              lg:px-7
+            "
+          >
+            <div
+              className="
+                flex h-10 w-10 shrink-0
+                items-center justify-center
+                rounded-full
+                border border-[#FFC107]/50
+                text-[#FFC107]
+              "
+            >
+              <ShieldCheck
+                size={21}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </div>
+
+            <div>
+              <p
+                className="
+                  font-[var(--font-body)]
+                  text-[11px]
+                  font-bold
+                  uppercase
+                  tracking-wide
+                  text-white
+                  sm:text-xs
+                "
+              >
+                Trusted &amp; reliable
+              </p>
+
+              <p
+                className="
+                  mt-1
+                  hidden
+                  font-[var(--font-body)]
+                  text-[10px]
+                  leading-4
+                  text-white/70
+                  sm:block
+                "
+              >
+                Your satisfaction is
+                <br />
+                our priority.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom spacing */}
+      <div className="h-8 bg-[#FFF5F8] sm:h-10 lg:h-12" />
     </section>
   );
 }

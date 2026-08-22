@@ -3,18 +3,21 @@ import Footer from "@/components/layout/Footer";
 import Contact from "@/components/sections/Contact";
 
 export const metadata = {
-  title: "Contact | LisbethWrites",
+  title: "Contact Us | ShopperSisi",
   description:
-    "Start a conversation with LisbethWrites for Christian writing, devotionals, articles, newsletters, and faith-centered storytelling.",
+    "Get in touch with ShopperSisi to request an order, ask a question, or find out how we can shop and deliver for you locally or internationally.",
+  keywords: [
+    "contact ShopperSisi",
+    "Nigerian market delivery contact",
+    "WhatsApp shopping service Nigeria",
+  ],
 };
 
 export default function ContactPage() {
   return (
-    <main className="bg-[#121212] text-[#F5F1E8] min-h-screen">
+    <main className="bg-white min-h-screen">
       <Navbar />
-
       <Contact />
-
       <Footer />
     </main>
   );

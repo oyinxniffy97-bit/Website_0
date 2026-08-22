@@ -10,7 +10,6 @@ import {
   Phone,
 } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa6";
-
 import {
   EMAIL,
   EMAIL_LINK,
@@ -40,17 +39,16 @@ const SERVICES = [
 ];
 
 export default function Footer() {
-  const hasStoreDetails = Boolean(STORE_ADDRESS && STORE_HOURS);
+  const hasStoreDetails = STORE_ADDRESS && STORE_HOURS;
 
   return (
     <footer
       id="contact"
-      className="border-t-2 border-[var(--gold)]/40 bg-[#2A0F26] text-white"
+      className="border-t border-white/10 bg-[var(--charcoal)] text-white"
     >
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-
-          {/* BRAND */}
+          {/* Brand */}
           <div>
             <Link
               href="/"
@@ -72,12 +70,12 @@ export default function Footer() {
               <span className="text-[var(--gold)]">we&apos;ll shop.</span>
             </p>
 
-            <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-white/60">
-              We run errands for a living, bringing the Nigerian market to
-              you with convenience, care, and trust.
+            <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-white/50">
+              We run errands for a living, bringing the Nigerian market to you
+              with convenience, care, and trust.
             </p>
 
-            {/* SOCIAL LINKS */}
+            {/* Social Links — only render once a real URL is set in site-config.js */}
             <div className="mt-7 flex items-center gap-3">
               {SOCIAL_LINKS.instagram && (
                 <SocialLink
@@ -111,7 +109,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* EXPLORE */}
+          {/* Explore */}
           <div>
             <h3 className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
               Explore
@@ -122,7 +120,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-1 font-[var(--font-body)] text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                    className="group inline-flex items-center gap-1 font-[var(--font-body)] text-sm text-white/60 transition-colors duration-300 hover:text-white"
                   >
                     {link.name}
 
@@ -138,7 +136,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* SERVICES */}
+          {/* Services */}
           <div>
             <h3 className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
               Our Services
@@ -149,7 +147,7 @@ export default function Footer() {
                 <li key={service.name}>
                   <Link
                     href={service.href}
-                    className="group inline-flex items-center gap-1 font-[var(--font-body)] text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                    className="group inline-flex items-center gap-1 font-[var(--font-body)] text-sm text-white/60 transition-colors duration-300 hover:text-white"
                   >
                     {service.name}
 
@@ -165,21 +163,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CONTACT */}
+          {/* Contact */}
           <div>
             <h3 className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.25em] text-[var(--gold)]">
               Find &amp; Reach Us
             </h3>
 
             <div className="mt-6 space-y-5">
-
-              {/* STORE */}
+              {/* Store */}
               <div className="flex gap-3">
                 <MapPin
                   size={18}
                   strokeWidth={1.7}
                   aria-hidden="true"
-                  className="mt-0.5 shrink-0 text-[var(--gold)]"
+                  className="mt-0.5 shrink-0 text-[var(--magenta)]"
                 />
 
                 <div>
@@ -187,95 +184,91 @@ export default function Footer() {
                     Visit our store
                   </p>
 
-                  <p className="mt-1 font-[var(--font-body)] text-sm leading-6 text-white/60">
+                  <p className="mt-1 font-[var(--font-body)] text-sm leading-6 text-white/50">
                     {hasStoreDetails
-                      ? STORE_ADDRESS + " · " + STORE_HOURS
+                      ? `${STORE_ADDRESS} · ${STORE_HOURS}`
                       : "Walk-in store available."}
                   </p>
                 </div>
               </div>
 
-              {/* WHATSAPP */}
+              {/* WhatsApp */}
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Chat with ShopperSisi on WhatsApp"
-                className="flex items-center gap-3 font-[var(--font-body)] text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-3 font-[var(--font-body)] text-sm text-white/60 transition-colors duration-300 hover:text-white"
               >
                 <MessageCircle
                   size={18}
                   strokeWidth={1.7}
                   aria-hidden="true"
-                  className="shrink-0 text-[var(--gold)]"
+                  className="shrink-0 text-[var(--magenta)]"
                 />
 
                 <span>Chat with us on WhatsApp</span>
               </a>
 
-              {/* PHONE */}
+              {/* Phone */}
               <a
                 href={PHONE_LINK}
-                aria-label={"Call ShopperSisi at " + PHONE_NUMBER}
-                className="flex items-center gap-3 font-[var(--font-body)] text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                aria-label={`Call ShopperSisi at ${PHONE_NUMBER}`}
+                className="flex items-center gap-3 font-[var(--font-body)] text-sm text-white/60 transition-colors duration-300 hover:text-white"
               >
                 <Phone
                   size={18}
                   strokeWidth={1.7}
                   aria-hidden="true"
-                  className="shrink-0 text-[var(--gold)]"
+                  className="shrink-0 text-[var(--magenta)]"
                 />
 
                 <span>{PHONE_NUMBER}</span>
               </a>
 
-              {/* EMAIL */}
+              {/* Email */}
               <a
                 href={EMAIL_LINK}
-                aria-label={"Email ShopperSisi at " + EMAIL}
-                className="flex items-center gap-3 font-[var(--font-body)] text-sm text-white/70 transition-colors duration-300 hover:text-white"
+                aria-label={`Email ShopperSisi at ${EMAIL}`}
+                className="flex items-center gap-3 font-[var(--font-body)] text-sm text-white/60 transition-colors duration-300 hover:text-white"
               >
                 <Mail
                   size={18}
                   strokeWidth={1.7}
                   aria-hidden="true"
-                  className="shrink-0 text-[var(--gold)]"
+                  className="shrink-0 text-[var(--magenta)]"
                 />
 
                 <span>{EMAIL}</span>
               </a>
             </div>
 
-            {/* PAYMENT */}
+            {/* Payment */}
             <div className="mt-7">
-              <p className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
+              <p className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">
                 We Accept
               </p>
 
-              <div className="mt-3 inline-flex rounded-lg border border-white/20 px-4 py-2 font-[var(--font-body)] text-xs font-semibold text-white/90">
+              <div className="mt-3 inline-flex rounded-lg border border-white/15 px-4 py-2 font-[var(--font-body)] text-xs font-semibold text-white/80">
                 Bank Transfer
               </div>
             </div>
           </div>
         </div>
 
-        {/* COPYRIGHT */}
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-7 font-[var(--font-body)] text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        {/* Bottom */}
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-7 font-[var(--font-body)] text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            {"\u00A9 " +
-              new Date().getFullYear() +
-              " ShopperSisi. All rights reserved."}
+            © {new Date().getFullYear()} ShopperSisi. All rights reserved.
           </p>
 
-          <p>
-            Shop online. Visit us in-store. Or let us shop for you.
-          </p>
+          <p>Shop online. Visit us in-store. Or let us shop for you.</p>
         </div>
 
-        {/* TAGLINE */}
+        {/* Tagline */}
         <div className="mt-6 text-center">
-          <p className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.2em] text-white/35">
-            You relax. We shop. You smile.
+          <p className="font-[var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.2em] text-white/25">
+            You relax. We shop. You smile. ❤️
           </p>
         </div>
       </div>
@@ -290,7 +283,7 @@ function SocialLink({ href, label, icon }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-300 hover:border-[var(--gold)]/60 hover:bg-[var(--gold)] hover:text-[var(--charcoal)]"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all duration-300 hover:border-[var(--magenta)]/50 hover:bg-[var(--magenta)] hover:text-white"
     >
       {icon}
     </a>

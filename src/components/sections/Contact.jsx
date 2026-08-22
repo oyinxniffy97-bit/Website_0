@@ -1,312 +1,177 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowLeft, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import {
-  ArrowRight,
-  Mail,
-} from "lucide-react";
-
-import {
-  FaLinkedin,
-  FaFacebook,
-  FaWhatsapp,
-} from "react-icons/fa6";
-
+  EMAIL,
+  EMAIL_LINK,
+  PHONE_LINK,
+  PHONE_NUMBER,
+  STORE_ADDRESS,
+  STORE_HOURS,
+  WHATSAPP_LINK,
+} from "@/lib/site-config";
 
 export default function Contact() {
+  const hasStoreDetails = Boolean(STORE_ADDRESS && STORE_HOURS);
+
   return (
     <section
-      id="contact"
-      className="
-        py-24
-        bg-[#121212]
-        text-[#F5F1E8]
-      "
+      aria-labelledby="contact-heading"
+      className="bg-white px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
     >
+      <div className="mx-auto max-w-3xl">
 
-      <div className="max-w-5xl mx-auto px-6">
-
-
-        <motion.div
-
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-
-          transition={{
-            duration: 0.8,
-          }}
-
-          viewport={{
-            once: true,
-          }}
-
-          className="
-            relative
-            rounded-3xl
-            border
-            border-[#D4AF37]/20
-            bg-white/5
-            backdrop-blur-xl
-            p-10
-            md:p-16
-            text-center
-            overflow-hidden
-          "
-
+        {/* BACK TO HOME */}
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--purple)]/60 transition-colors hover:text-[var(--magenta)]"
         >
-
-
-          {/* Background Glow */}
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-[#D4AF37]/10
-              blur-3xl
-            "
-          />
-
-
-
-          <div className="relative">
-
-
-            <Mail
-              size={36}
-              className="
-                mx-auto
-                text-[#D4AF37]
-              "
-            />
-
-
-
-            <p
-              className="
-                mt-6
-                text-[#D4AF37]
-                uppercase
-                tracking-[0.3em]
-                text-sm
-              "
-            >
-              Start A Conversation
-            </p>
-
-
-
-
-            <h1
-              className="
-                mt-5
-                text-4xl
-                md:text-5xl
-                font-serif
-                leading-tight
-              "
-            >
-
-              Have A Message
-              <br />
-              Worth Sharing?
-
-            </h1>
-
-
-
-
-
-            <p
-              className="
-                mt-6
-                max-w-2xl
-                mx-auto
-                text-[#F5F1E8]/70
-                text-lg
-                leading-relaxed
-              "
-            >
-
-              Whether you need faith-based writing,
-              devotionals, articles, newsletters,
-              editing, or thoughtful Christian
-              storytelling, we would be honoured
-              to help bring your vision into words.
-
-            </p>
-
-
-
-
-
-            {/* Email Button */}
-
-            <a
-              href="mailto:lisbethwrites07@gmail.com"
-
-              className="
-                mt-10
-                inline-flex
-                items-center
-                gap-2
-                px-8
-                py-4
-                rounded-full
-                bg-[#D4AF37]
-                text-[#121212]
-                font-medium
-                hover:scale-105
-                transition
-              "
-            >
-
-              Let's Work Together
-
-              <ArrowRight size={18}/>
-
-            </a>
-
-
-
-
-
-
-            {/* Social Links */}
-
-            <div
-              className="
-                mt-10
-                flex
-                flex-wrap
-                justify-center
-                gap-4
-              "
-            >
-
-
-
-              {/* WhatsApp */}
-
-              <a
-                href="https://wa.me/2348132963356"
-
-                target="_blank"
-
-                rel="noopener noreferrer"
-
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  px-5
-                  py-3
-                  rounded-full
-                  border
-                  border-[#F5F1E8]/20
-                  hover:border-[#D4AF37]
-                  transition
-                "
-              >
-
-                <FaWhatsapp size={18}/>
-
-                WhatsApp
-
-              </a>
-
-
-
-
-
-
-              {/* LinkedIn */}
-
-              <a
-                href="https://www.linkedin.com/company/lisbethwrites"
-
-                target="_blank"
-
-                rel="noopener noreferrer"
-
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  px-5
-                  py-3
-                  rounded-full
-                  border
-                  border-[#F5F1E8]/20
-                  hover:border-[#D4AF37]
-                  transition
-                "
-              >
-
-                <FaLinkedin size={18}/>
-
-                LinkedIn
-
-              </a>
-
-
-
-
-
-
-
-              {/* Facebook */}
-
-              <a
-                href="https://facebook.com/thelisbethwrites"
-
-                target="_blank"
-
-                rel="noopener noreferrer"
-
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  px-5
-                  py-3
-                  rounded-full
-                  border
-                  border-[#F5F1E8]/20
-                  hover:border-[#D4AF37]
-                  transition
-                "
-              >
-
-                <FaFacebook size={18}/>
-
-                Facebook
-
-              </a>
-
-
-
+          <ArrowLeft size={14} strokeWidth={2.2} aria-hidden="true" />
+          Back to home
+        </Link>
+
+        {/* EYEBROW */}
+        <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.25em] text-[var(--magenta)]">
+          Get In Touch
+        </p>
+
+        {/* HEADING */}
+        <h1
+          id="contact-heading"
+          className="max-w-xl font-[var(--font-display)] text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-[var(--purple)] sm:text-5xl"
+        >
+          We&apos;re here to help,
+          <span className="block text-[var(--magenta)]">
+            whenever you need us.
+          </span>
+        </h1>
+
+        {/* INTRO */}
+        <p className="mt-5 max-w-lg text-sm leading-7 text-[#1D1D1D]/65 sm:text-base">
+          Have a question, a special request, or just want to say hi? Reach
+          out through any of the channels below.
+        </p>
+
+        {/* CONTACT OPTIONS */}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+
+          {/* WHATSAPP */}
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat with ShopperSisi on WhatsApp"
+            className="group flex items-start gap-4 rounded-2xl border border-black/[0.06] bg-[var(--soft-pink)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--magenta)]/25"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)]/20 text-[var(--magenta)]">
+              <MessageCircle
+                size={20}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </span>
+
+            <div>
+              <p className="text-sm font-semibold text-[#1D1D1D]">
+                Chat on WhatsApp
+              </p>
+
+              <p className="mt-1 text-sm leading-6 text-[#1D1D1D]/60">
+                Fastest way to reach us — usually a same-day reply.
+              </p>
             </div>
+          </a>
 
+          {/* PHONE */}
+          <a
+            href={PHONE_LINK}
+            aria-label={`Call ShopperSisi at ${PHONE_NUMBER}`}
+            className="group flex items-start gap-4 rounded-2xl border border-black/[0.06] bg-[var(--soft-pink)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--magenta)]/25"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)]/20 text-[var(--magenta)]">
+              <Phone
+                size={20}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </span>
 
+            <div>
+              <p className="text-sm font-semibold text-[#1D1D1D]">
+                Call Us
+              </p>
 
+              <p className="mt-1 text-sm leading-6 text-[#1D1D1D]/60">
+                {PHONE_NUMBER}
+              </p>
+            </div>
+          </a>
+
+          {/* EMAIL */}
+          <a
+            href={EMAIL_LINK}
+            aria-label={`Email ShopperSisi at ${EMAIL}`}
+            className="group flex items-start gap-4 rounded-2xl border border-black/[0.06] bg-[var(--soft-pink)] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--magenta)]/25"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)]/20 text-[var(--magenta)]">
+              <Mail
+                size={20}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </span>
+
+            <div>
+              <p className="text-sm font-semibold text-[#1D1D1D]">
+                Email Us
+              </p>
+
+              <p className="mt-1 text-sm leading-6 text-[#1D1D1D]/60">
+                {EMAIL}
+              </p>
+            </div>
+          </a>
+
+          {/* STORE */}
+          <div className="flex items-start gap-4 rounded-2xl border border-black/[0.06] bg-[var(--soft-pink)] p-6">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--gold)]/20 text-[var(--magenta)]">
+              <MapPin
+                size={20}
+                strokeWidth={1.8}
+                aria-hidden="true"
+              />
+            </span>
+
+            <div>
+              <p className="text-sm font-semibold text-[#1D1D1D]">
+                Visit Our Store
+              </p>
+
+              <p className="mt-1 text-sm leading-6 text-[#1D1D1D]/60">
+                {hasStoreDetails
+                  ? STORE_ADDRESS + " · " + STORE_HOURS
+                  : "Walk-in store available."}
+              </p>
+            </div>
           </div>
+        </div>
 
-
-        </motion.div>
-
-
+        {/* ORDER CTA */}
+        <div className="mt-10 rounded-2xl border border-[var(--gold)]/30 bg-[var(--gold)]/[0.08] p-6 text-center">
+          <p className="text-sm leading-6 text-[#1D1D1D]/80">
+            Placing an order?{" "}
+            <Link
+              href="/request"
+              className="font-semibold text-[var(--magenta)] underline underline-offset-4 hover:text-[var(--purple)]"
+            >
+              Use our errand request form
+            </Link>{" "}
+            instead for a faster response.
+          </p>
+        </div>
       </div>
-
-
     </section>
   );
 }
